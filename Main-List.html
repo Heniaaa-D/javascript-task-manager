@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainList</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="flex flex-col h-screen">
+      <!-- header -->
+      <div
+        class="bg-white flex flex-col py-5 px-6 gap-1.5 border-b border-lightgray border-r"
+      >
+        <p id="date" class="text-gray font-medium text-[10px]"></p>
+        <p class="font-semibold text-[26px]">My Tasks</p>
+        <!-- <div class="bg-lightgray w-80 h-1 text-transparent rounded-[99px]">
+          .
+        </div>
+        <p class="font-light pb-2 text-[10px] text-gray">value of value done</p> -->
+      </div>
+      <!-- section-one -->
+      <div
+        class="bg-lightbeige overflow-y-auto border-r border-lightgray py-5 px-6 relative h-full"
+      >
+        <div class="tasks-container">
+          <p
+            id="empty"
+            class="text-gray text-2xl flex items-center justify-center"
+          >
+            Empty
+          </p>
+        </div>
+        <button
+          class="add-button-js bg-black text-white flex items-center justify-center text-3xl rounded-full w-14 h-14 fixed bottom-5 right-6"
+        >
+          <?xml version="1.0" encoding="utf-8"?>
+          <svg
+            width="40px"
+            height="40px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="24" height="24" fill="black" />
+            <path
+              d="M12 6V18"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 12H18"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+      <!-- section-two -->
+      <div class="hidden show-add-task-div w-full">
+        <div
+          class="fixed inset-0 bg-black/20 z-40 w-full h-screen flex justify-center items-center"
+        >
+          <div
+            class="flex flex-col bg-white border-t-8 border-darkorange w-80 h-65 rounded-2xl z-50 py-3 px-5 absolute"
+          >
+            <div class="add-task-info-text flex justify-between pb-5">
+              <div class="flex flex-col gap-1">
+                <p class="font-semibold text-[15px]">Add new task</p>
+                <p class="font-[400px] text-[11px] text-gray">
+                  Fill in the details below
+                </p>
+                <p class="no-title-text hidden text-red-500 text-[8px]">
+                  please add a title in the task!
+                </p>
+              </div>
+              <div
+                class="w-8 h-8 close-add-button rounded-full bg-lightbeige flex items-center justify-center"
+              >
+                <?xml version="1.0" encoding="utf-8"?>
+                <svg
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="24" height="24" fill="transparent" />
+                  <path
+                    d="M7 17L16.8995 7.10051"
+                    stroke="#000000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7 7.00001L16.8995 16.8995"
+                    stroke="#000000"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <input
+              class="task-input-add bg-lightbeige border border-lightgray px-3 py-3 rounded-[10px]"
+              placeholder="task name..."
+              type="search"
+            />
+            <p class="font-medium py-1 text-[9px] text-gray">CATEGORY</p>
+            <div class="flex gap-2.5 pb-5">
+              <button
+                class="category-button-js border hover:border-redorange border-lightgray bg-lightbeige hover:text-redorange text-gray text-[10px] font-[400px] px-3 py-1.5 rounded-3xl cursor-pointer"
+                data-category="Design"
+              >
+                Design
+              </button>
+              <button
+                class="category-button-js border hover:border-darkorange border-lightgray bg-lightbeige hover:text-darkorange text-gray text-[10px] font-[400px] px-3 py-1.5 rounded-3xl cursor-pointer"
+                data-category="Dev"
+              >
+                Dev
+              </button>
+              <button
+                class="category-button-js border hover:border-gray border-lightgray bg-lightbeige hover:text-gray-600 text-gray text-[10px] font-[400px] px-3 py-1.5 rounded-3xl cursor-pointer"
+                data-category="Writing"
+              >
+                Writing
+              </button>
+              <p class="hidden no-Category-Text text-red-500 text-[8px]">
+                please choose one category!
+              </p>
+            </div>
+
+            <div class="flex items-center justify-center">
+              <button
+                class="add-task-button w-full bg-black text-white py-2 font-semibold text-[13px] rounded-[10px]"
+              >
+                Add Task
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section-three  -->
+    <div class="show-edit-task-div w-full hidden">
+      <div
+        class="fixed inset-0 bg-black/20 z-40 w-full h-screen flex justify-center items-center"
+      >
+        <div
+          class="flex flex-col bg-white border-t-8 border-darkgreen w-80 h-67.5 rounded-2xl z-50 py-3 px-5 absolute"
+        >
+          <div class="flex justify-between pb-5">
+            <div class="flex flex-col gap-1">
+              <p class="font-semibold text-[15px]">Edit task</p>
+              <p class="font-[400px] text-[11px] text-gray">
+                Update the task details below
+              </p>
+              <p class="no-title-text hidden text-red-500 text-[8px]">
+                please add a title in the task!
+              </p>
+            </div>
+            <div
+              class="w-8 h-8 rounded-full bg-lightbeige flex items-center justify-center close-edit-button"
+            >
+              <?xml version="1.0" encoding="utf-8"?>
+              <svg
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" fill="transparent" />
+                <path
+                  d="M7 17L16.8995 7.10051"
+                  stroke="#000000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7 7.00001L16.8995 16.8995"
+                  stroke="#000000"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+          <input
+            class="task-input-edit bg-lightbeige border border-lightgray hover:border-darkgreen px-3 py-3 rounded-[10px]"
+            placeholder="task name..."
+            type="search"
+          />
+          <p class="font-medium py-1 text-[9px] text-gray">CATEGORY</p>
+          <div class="flex gap-2.5 pb-5">
+            <button
+              class="border hover:border-gray category-button-js border-lightgray bg-lightbeige hover:text-gray-600 text-gray text-[10px] font-[400px] px-3 py-1.5 rounded-3xl cursor-pointer"
+              data-category="Design"
+            >
+              Design
+            </button>
+            <button
+              class="border hover:border-darkorange category-button-js border-lightgray bg-lightbeige hover:text-darkorange text-gray text-[10px] font-[400px] px-3 py-1.5 rounded-3xl cursor-pointer"
+              data-category="Dev"
+            >
+              Dev
+            </button>
+            <button
+              class="border category-button-js hover:border-darkgreen border-lightgray bg-lightbeige hover:text-darkgreen text-gray text-[10px] font-[400px] px-3 py-1.5 rounded-3xl cursor-pointer"
+              data-category="Writing"
+            >
+              Writing
+            </button>
+            <p class="hidden no-Category-Text text-red-500 text-[8px]">
+              please choose one category!
+            </p>
+          </div>
+          <div class="flex items-center justify-center gap-3.5">
+            <button
+              class="deleteButton border border-redorange bg-white text-redorange px-12 py-3 rounded-[10px] text-[13px] cursor-pointer"
+            >
+              Delete
+            </button>
+            <button
+              class="save-edit-button bg-black text-white px-12 py-3 font-semibold text-[13px] rounded-[10px] cursor-pointer"
+            >
+              save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

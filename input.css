@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gray: #9e9c96;
+  --color-gray2: #d1cfc9;
+  --color-lightgray: #e0ded9;
+  --color-darkorange: #ba7517;
+  --color-redorange: #d95930;
+  --color-neutralbeige: #f5f2ed;
+  --color-neutralbeige2: #f0ede8;
+  --color-darkgray: #878580;
+  --color-mente: #8cd3b4;
+  --color-green: #1c9e75;
+  --color-beige: #faf7f5;
+  --color-lightbeige: #f5f2ed;
+  --color-darkgreen: #0f6e57;
+}
+
+.disabled .task1text {
+  text-decoration-line: line-through;
+  color: #9e9c96;
+}
+
+.disabled .bullet1 {
+  background-color: #9e9c96;
+}
+
+.disabled {
+  background-color: #faf7f5;
+}
+
+.disabled .task2text {
+  text-decoration-line: line-through;
+  color: #9e9c96;
+}
+
+.disabled .bullet2 {
+  background-color: #9e9c96;
+}
+
+.disabled .task3text {
+  text-decoration-line: line-through;
+  color: #9e9c96;
+}
+
+.active[data-category="Design"] {
+  color: #d95930;
+  border-color: #d95930;
+}
+
+.active[data-category="Dev"] {
+  color: #ba7517;
+  border-color: #ba7517;
+}
+
+.active[data-category="Writing"] {
+  color: darkgreen;
+  border-color: darkgreen;
+}
